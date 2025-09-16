@@ -1,0 +1,61 @@
+# Test configuration for the Smart Education API
+# This configuration is used during test execution
+
+spring:
+  profiles:
+    active: test
+
+  # Database configuration for tests
+  datasource:
+    url: jdbc:postgresql://localhost:5432/school_management_test
+    username: admin
+    password: admin
+    driver-class-name: org.postgresql.Driver
+
+  # JPA configuration for tests
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+  # Flyway configuration for tests
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    validate-on-migrate: true
+
+  # Disable banner in tests
+  main:
+    banner-mode: off
+
+  # Test-specific logging
+logging:
+  level:
+    com.xavier.smarteducationapi: DEBUG
+    org.springframework.modulith: DEBUG
+    org.springframework.context.event: DEBUG
+    org.hibernate.SQL: WARN
+    org.hibernate.type.descriptor.sql.BasicBinder: WARN
+
+# Actuator endpoints for testing
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,modulith
+  endpoint:
+    health:
+      show-details: always
+
+# Test-specific properties
+test:
+  performance:
+    event-publishing:
+      min-events-per-second: 100
+      concurrent-min-events-per-second: 50
+    value-object:
+      min-objects-per-second: 1000
