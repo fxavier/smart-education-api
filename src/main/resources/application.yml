@@ -24,3 +24,15 @@ spring:
   docker:
     compose:
       file: compose-dev.yml
+
+  tenant:
+    module:
+      default-plan: BASIC
+      trial-days: 14
+      max-subdomain-length: 63
+      reserved-subdomains:
+        - admin
+        - api
+        - www
+        - mail
+        - ftp
