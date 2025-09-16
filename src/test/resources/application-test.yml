@@ -2,9 +2,6 @@
 # This configuration is used during test execution
 
 spring:
-  profiles:
-    active: test
-
   # Database configuration for tests
   datasource:
     url: jdbc:postgresql://localhost:5432/school_management_test
