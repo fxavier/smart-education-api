@@ -84,3 +84,8 @@ logs/
 hs_err_pid*.log
 replay_pid*.log
 *.log.*
+### Postgres, Redis, Prometheus, Grafana ###
+postgres_data/
+redis_data/
+prometheus_data/
+grafana_data/
